@@ -2,6 +2,7 @@
 #### 一、注意或技巧
 - 文件目录不能用关键字命名
 - vscode 插件project-tpl； 快速生成页面模块
+- vscode 插件JavaScript and TypeScript Nightly
 
 #### 二、React 组件生命周期
 
@@ -77,7 +78,11 @@ dynamicImport: {},
 封装好的组件目录 components/LazyLoad
 使用： 在/src/pages/context/index.js 下的lists 组件实现懒加载
 
+#### 七、ErrorBoundary组件开发【基于React错误边界技术实现的组件】
+常见问题：在render引入不存在的变量，直接导致白屏
 
+在全局布局页面 /src/layouts 引入 ErrorBoundary组件
+ErrorBoundary组件只能检测子组件发生的错误，不能检测本身发生的错误。
 
 
 
