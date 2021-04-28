@@ -45,6 +45,17 @@ dva: {},                     // .umirc.ts 开启配置
 
 ```
 
+#### 五、基于react context api 实现数据流管理
+demo search 涉及目录
+```
+
+/src/pages/class/context         // 页面逻辑
+
+/src/models/search.js        //
+
+/src/services/search.js
+
+/mock/search.js
 
 
 
