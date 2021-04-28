@@ -28,6 +28,9 @@ export default function IndexPage() {
         <List.Item>
           <Link to="/class/lazy-load">lazyload</Link>
         </List.Item>
+        <List.Item>
+          <Link to="/class/modal">modal</Link>
+        </List.Item>
       </List>
     </div>
   );

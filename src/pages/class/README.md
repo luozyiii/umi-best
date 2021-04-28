@@ -84,5 +84,14 @@ dynamicImport: {},
 在全局布局页面 /src/layouts 引入 ErrorBoundary组件
 ErrorBoundary组件只能检测子组件发生的错误，不能检测本身发生的错误。
 
+这个不是万能的，当遇到点击事件的内部函数、异步函数的内部函数报错是无法检测的。
+
+#### 八、Modal组件开发【基于createPortal 创建自定义弹窗组件】
+示例目录 /src/pages/modal => /components/Modal => /components/CreatePortal
+
+核心
+ReactDOM.createPortals(child, container)
+这个方法需要两个参数，第一个参数是需要挂载的组件实例，而第二个参数则是要挂载到的DOM节点。
+一般来说第一个参数可能传递的是需要挂载的 this.props.children
 
 
