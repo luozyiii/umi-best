@@ -72,11 +72,11 @@ dynamicImport: {},
 ```
 
 - 组件级别的懒加载
-基于lazy 与 suspense 实现; 示例目录 /src/pages/lazy-load
+基于lazy 与 suspense 实现; 示例目录 /src/pages/class/lazy-load
 
 - 进一步封装
 封装好的组件目录 components/LazyLoad
-使用： 在/src/pages/context/index.js 下的lists 组件实现懒加载
+使用： 在/src/pages/class/context/index.js 下的lists 组件实现懒加载
 
 #### 七、ErrorBoundary组件开发【基于React错误边界技术实现的组件】
 常见问题：在render引入不存在的变量，直接导致白屏
@@ -87,11 +87,26 @@ ErrorBoundary组件只能检测子组件发生的错误，不能检测本身发�
 这个不是万能的，当遇到点击事件的内部函数、异步函数的内部函数报错是无法检测的。
 
 #### 八、Modal组件开发【基于createPortal 创建自定义弹窗组件】
-示例目录 /src/pages/modal => /components/Modal => /components/CreatePortal
+示例目录 /src/pages/class/modal => /components/Modal => /components/CreatePortal
 
 核心
 ReactDOM.createPortals(child, container)
 这个方法需要两个参数，第一个参数是需要挂载的组件实例，而第二个参数则是要挂载到的DOM节点。
 一般来说第一个参数可能传递的是需要挂载的 this.props.children
+
+#### 九、使用 ref api 来操作dom和组件
+Refs 提供了一种方式，允许我们访问 DOM 节点或在 render 方法中创建的 React 元素。
+
+在典型的 React 数据流中，props 是父组件与子组件交互的唯一方式。要修改一个子组件，你需要使用新的 props 来重新渲染它。但是，在某些情况下，你需要在典型数据流之外强制修改子组件。被修改的子组件可能是一个 React 组件的实例，也可能是一个 DOM 元素。对于这两种情况，React 都提供了解决办法。
+
+核心：createRef 和 forwardRef
+
+何时使用Ref ？
+下面是几个适合使用 refs 的情况：
+
+- 管理焦点，文本选择或媒体播放。 （示例 /src/pages/class/refs）
+- 触发强制动画。
+- 集成第三方 DOM 库。
+
 
 

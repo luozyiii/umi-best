@@ -5,7 +5,7 @@ import { Link } from 'umi';
 export default function IndexPage() {
   return (
     <div>
-      <h1>component demo</h1>
+      <h1>basic demo</h1>
       <List>
         <List.Item>
           <Link to="/class/component-old">component-old</Link>
@@ -30,6 +30,9 @@ export default function IndexPage() {
         </List.Item>
         <List.Item>
           <Link to="/class/modal">modal</Link>
+        </List.Item>
+        <List.Item>
+          <Link to="/class/refs">refs</Link>
         </List.Item>
       </List>
     </div>
