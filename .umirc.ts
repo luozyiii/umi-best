@@ -5,11 +5,12 @@ export default defineConfig({
     type: 'none',
   },
   antd: {},
-  layout: {
-    name: '管理后台',
-    locale: true,
-    layout: 'side',
-  },
+  dva: {},
+  // layout: {
+  //   name: '管理后台',
+  //   locale: true,
+  //   layout: 'side',
+  // },
   // routes: [
   //   {
   //     path: '/home',
