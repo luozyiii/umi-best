@@ -62,6 +62,22 @@ demo context 涉及目录
 
 /mock/search.js
 
+```
+
+#### 六、LazyLoad组件开发【基于lazy 与 suspense 实现的懒加载组件】
+- 启动按需加载: 该配置针对页面级别的按需加载
+```
+dynamicImport: {},
+```
+
+- 组件级别的懒加载
+基于lazy 与 suspense 实现; 示例目录 /src/pages/lazy-load
+
+- 进一步封装
+封装好的组件目录 components/LazyLoad
+使用： 在/src/pages/context/index.js 下的lists 组件实现懒加载
+
+
 
 
 

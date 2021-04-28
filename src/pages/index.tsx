@@ -25,6 +25,9 @@ export default function IndexPage() {
         <List.Item>
           <Link to="/class/context">context</Link>
         </List.Item>
+        <List.Item>
+          <Link to="/class/lazy-load">lazyload</Link>
+        </List.Item>
       </List>
     </div>
   );
