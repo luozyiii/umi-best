@@ -56,3 +56,27 @@ src/hooks/useTitleHook
 - 目录
 pages/function/customize
 src/hooks/useHttpHook
+
+#### 使用think-react-store实现数据处理【基于React context 和 hook的数据流解决方案】
+[think-react-store](https://cpagejs.github.io/think-react-store/)
+
+- 目录
+pages/function/store
+
+- 安装
+```
+yarn add think-react-store
+```
+
+- 使用中间件 think-react-store/middlewares/log 打印日志
+```
+import log from 'think-react-store/middlewares/log';
+
+// 注意是数组写法
+<StoreProvider store={store} middleware={[log]}>
+  <User />
+</StoreProvider>
+```
+
+- 遇到问题
+useDispatchHook('user'); 使用失败 报错
