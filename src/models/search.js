@@ -27,7 +27,7 @@ export default {
       console.log('model:', res);
       yield put({
         type: 'getLists',
-        payload: res.lists,
+        payload: res.data,
       });
     },
   },

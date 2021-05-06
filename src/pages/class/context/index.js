@@ -24,7 +24,7 @@ export default class Index extends Component {
       case 'LISTS':
         const res = await getLists(action.payload);
         return this.setState({
-          lists: res.lists,
+          lists: res.data,
         });
       default:
         break;
