@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTitleHook } from '@/hooks';
+import { useTitleHook, useHtttpHook } from '@/hooks';
 
 export default function (props) {
   const [state, setState] = useState('customize');
@@ -10,6 +10,13 @@ export default function (props) {
   const handleClick = () => {
     setState('customize changed!');
   };
+
+  const [listResult, loading] = useHtttpHook({
+    url: '/getListsAsync',
+    method: 'get',
+    watch: [state],
+  });
+  console.log(listResult, loading);
 
   return (
     <div>
