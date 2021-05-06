@@ -55,8 +55,19 @@ dva: {},                     // .umirc.ts 开启配置
 接收/mock/search.js mock 返回的数据；models/search.js 里再调用同步方法 getLists, 数据重新渲染到页面。
 同步调用：
 在dva/search.js，也可以同步调用getLists
-思考：如何关闭mock?然后代理真实测试环境服务器
-
+思考：如何开发的时候关闭mock?然后代理真实测试环境服务器
+1、.env 文件里 设置 MOCK=none 就可以关闭
+2、[proxy](https://umijs.org/zh-CN/config#proxy)
+在.umirc.ts 增加 proxy 配置
+```
+proxy: {
+  '/api': {
+    target: 'http://jsonplaceholder.typicode.com/',
+    changeOrigin: true,
+    pathRewrite: { '^/api': '' },
+  },
+},
+```
 
 #### 五、基于react context api 实现数据流管理
 Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据，例如当前认证的用户、主题或首选语言。

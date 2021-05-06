@@ -23,9 +23,20 @@ antd: {}
 
 A：对于这种不能直接控制状态的组件，我们称之为“非受控组件”；
 
-6、如何关闭mock?然后代理真实测试环境服务器
-.env 文件里 设置 MOCK=none 就可以关闭，官方文档没描述好哦 - -0
-???
+6、如何开发的时候关闭mock?然后代理真实测试环境服务器
+(1).env 文件里 设置 MOCK=none 就可以关闭
+(2)、[proxy](https://umijs.org/zh-CN/config#proxy)
+在.umirc.ts 增加 proxy 配置
+```
+proxy: {
+  '/api': {
+    target: 'http://jsonplaceholder.typicode.com/',
+    changeOrigin: true,
+    pathRewrite: { '^/api': '' },
+  },
+},
+```
+
 
 
 

@@ -7,6 +7,7 @@ export default defineConfig({
   antd: {},
   dva: {},
   dynamicImport: {},
+
   // layout: {
   //   name: '管理后台',
   //   locale: true,
