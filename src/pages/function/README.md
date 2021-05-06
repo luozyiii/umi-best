@@ -80,3 +80,30 @@ import log from 'think-react-store/middlewares/log';
 
 - 遇到问题
 useDispatchHook('user'); 使用失败 报错
+
+#### Fiber 架构
+Fiber 是 React 16 中新的协调引擎。它的主要目的是使 Virtual DOM 可以进行增量式渲染。
+Fiber 即是React新的调度算法
+Fiber 架构将整个渲染阶段分为了调度阶段和提交阶段
+
+流程图
+setState等修改state操作 => 放入更新队列 => 使用requestAnimationFrame处理高优先级任务(例如：用户点击，鼠标点击等操作) / 使用requestldleCallback 处理低优先级任务(查找根节点，或者转发成FiberNode) => 查找根节点将其转化成FiberNode => 处理下一个FiberNode(深度优先遍历) => 浏览器是否空闲 
+
+=> 否 => 任务暂停 => 空闲的时候继续执行 => 处理下一个FiberNode => 生成完整的diff effectList => 应用diff dom, 更新视图
+=> 是 => 处理下一个FiberNode => 生成完整的diff effectList => 应用diff dom, 更新视图
+
+- Fiber 对hook的影响
+
+- Fiber 架构对组件生命周期的影响
+
+调度阶段(尽量不使用不建议调度阶段的方法，比如请求接口操作)
+componentWillMount
+componentWillReceiveProps
+shouldComponentUpdate
+componentWillUpdate
+
+提交阶段(不能终止)
+componentDidMound
+componentDidUpdate
+componentWillUnmount
+
