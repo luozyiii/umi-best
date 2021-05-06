@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CreatePortal from '@/components/CreatePortal';
 import Modal from '@/components/Modal';
 import { Button } from 'antd-mobile';
 
@@ -26,12 +25,11 @@ export default class Index extends Component {
     return (
       <div>
         <Button type="primary" onClick={this.handleClick}>
-          modal
+          modal button
         </Button>
         <Modal show={this.state.show} onClose={this.handleClose}>
           modal
         </Modal>
-        <CreatePortal></CreatePortal>
       </div>
     );
   }

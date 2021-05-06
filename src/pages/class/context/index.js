@@ -36,6 +36,8 @@ export default class Index extends Component {
     return (
       <div>
         {info?.b?.c}
+        {/* 以下是触发组件错误的代码,检验错误边界组件:引用不存在的变量 */}
+        {/* {info.b.c} */}
         <SearchContext.Provider
           value={{ state: this.state, dispatch: this.handleDispatch }}
         >

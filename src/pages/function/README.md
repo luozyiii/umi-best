@@ -1,7 +1,10 @@
-### React Hooks开发及自定义hook
+### React Hooks开发及自定义hook (16.8 的新特性)
 
 #### react hook api-新的组件开发模式
 源码目录：/src/pages/function/hook
+
+- useState 方法
+
 
 - useEffect 方法
 第一个参数：函数

@@ -13,9 +13,9 @@ export default class Refs extends Component {
   }
 
   componentDidMount() {
-    console.log(this.domRef);
-    console.log(this.domRef.current.innerHTML);
-    console.log(this.childRef.current); // 子组件的实例
+    console.log('this.domRef', this.domRef);
+    console.log('this.domRef.current.innerHTML', this.domRef.current.innerHTML);
+    console.log('this.childRef.current', this.childRef.current); // 子组件的实例
 
     this.inputRef.current.focus(); // 加载完成后自动聚焦
   }

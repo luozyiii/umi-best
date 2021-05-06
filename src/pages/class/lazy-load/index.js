@@ -12,6 +12,7 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
+    // 特意加了定时器，观察延迟加载效果，还可以通过观察js的加载
     setTimeout(() => {
       this.setState({
         falg: true,

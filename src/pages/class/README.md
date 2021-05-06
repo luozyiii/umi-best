@@ -5,11 +5,14 @@
 - vscode 插件JavaScript and TypeScript Nightly
 
 #### 二、React 组件生命周期
-
+component-old.js
+component-new.js
+pure-component.js
 
 #### 三、React 组件通信(props和state)
-- 父组件向子组件传值
-- 子组件向父组件传值
+目录： pages/class/lists
+- 父组件向子组件传值 (父组件绑定props给子组件使用)
+- 子组件向父组件传值 (父组件提供方法给子组件调用)
 - 兄弟组件之间传值 (使用父组件作为中间项)
 思考：当兄弟组件层级嵌套太深，这种方法就不适用了。 dva
 
@@ -30,7 +33,7 @@ myComponents.PropTypes = {
 ```
 
 #### 四、Dva数据处理及数据mock
-dav 是一个基于redux 和 redux-saga 的数据流方案, 然后为了简化开发体验，dva还额外内置了react-router 和 fetch，所以也可以理解为一个轻量级的应用框架。
+dva 是一个基于redux 和 redux-saga 的数据流方案, 然后为了简化开发体验，dva还额外内置了react-router 和 fetch，所以也可以理解为一个轻量级的应用框架。
 
 demo dva 涉及目录
 ```
@@ -38,13 +41,22 @@ dva: {},                     // .umirc.ts 开启配置
 
 /src/pages/class/dva         // 页面逻辑
 
-/src/models/search.js        //
+/src/models/search.js        // 数据
 
-/src/services/search.js
+/src/services/search.js      // 请求
 
-/mock/search.js
+/mock/search.js              // mock 数据
 
 ```
+
+示例流程：
+异步调用：
+在dva/search.js 输入aaa, 回车enter, 调用 models/search.js 的异步方法 getListsAsync，该异步方法再调用 services/search 里的 getLists方法 发起mock 请求，
+接收/mock/search.js mock 返回的数据；models/search.js 里再调用同步方法 getLists, 数据重新渲染到页面。
+同步调用：
+在dva/search.js，也可以同步调用getLists
+思考：如何关闭mock?然后代理真实测试环境服务器
+
 
 #### 五、基于react context api 实现数据流管理
 Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据，例如当前认证的用户、主题或首选语言。
@@ -65,6 +77,25 @@ demo context 涉及目录
 
 ```
 
+理解：
+- React.createContext：创建一个上下文的容器(组件), defaultValue可以设置共享的默认数据
+```
+const {Provider, Consumer} = React.createContext(defaultValue);
+```
+- Provider(生产者): 和他的名字一样。用于生产共享数据的地方。生产什么呢？ 那就看value定义的是什么了。value:放置共享的数据。
+```
+<Provider value={/*共享的数据*/}>
+  /*里面可以渲染对应的内容*/
+</Provider>
+```
+- Consumer(消费者):这个可以理解为消费者。 他是专门消费供应商(Provider 上面提到的)产生数据。Consumer需要嵌套在生产者下面。才能通过回调的方式拿到共享的数据源。当然也可以单独使用，那就只能消费到上文提到的defaultValue
+```
+<Consumer>
+  {value => /*根据上下文  进行渲染相应内容*/}
+</Consumer>
+```
+
+
 #### 六、LazyLoad组件开发【基于lazy 与 suspense 实现的懒加载组件】
 - 启动按需加载: 该配置针对页面级别的按需加载
 ```
@@ -78,11 +109,15 @@ dynamicImport: {},
 封装好的组件目录 components/LazyLoad
 使用： 在/src/pages/class/context/index.js 下的lists 组件实现懒加载
 
+- 理解：
+Suspense 让你的组件在渲染之前进行“等待”，并在等待时显示 fallback 的内容。
+
 #### 七、ErrorBoundary组件开发【基于React错误边界技术实现的组件】
 常见问题：在render引入不存在的变量，直接导致白屏
 
 在全局布局页面 /src/layouts 引入 ErrorBoundary组件
 ErrorBoundary组件只能检测子组件发生的错误，不能检测本身发生的错误。
+示例：pages/class/context 
 
 这个不是万能的，当遇到点击事件的内部函数、异步函数的内部函数报错是无法检测的。
 
