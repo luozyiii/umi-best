@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Button } from 'antd-mobile';
 
 /*
-  生命周期-新增特性
+  生命周期-新增特性 16.3新增了两个
+  getDerivedStateFromProps
+  getSnapshotBeforeUpdate
 */
 export default class IndexB extends Component {
   constructor(props) {

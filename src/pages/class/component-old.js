@@ -3,6 +3,25 @@ import { Button } from 'antd-mobile';
 
 /* 
   组件的生命周期-旧
+
+  组件初始化阶段
+  constructor
+
+  挂载阶段
+  componentWillMount
+  render
+  componentDidMount
+
+  组件的更新阶段
+  componentWillReceiveProps
+  shouldComponentUpdate
+  componentWillUpdate
+  render
+  componentDidUpdate
+
+  卸载阶段
+  componentWillUnmount
+  
   shouldComponentUpdate 另一种实现方式 PureComponent 组件
   参考 pure-component.js
 */
