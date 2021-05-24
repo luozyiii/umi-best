@@ -50,7 +50,7 @@ useState 的替代方案。它接收一个形如 (state, action) => newState 的
 pages/function/customize
 src/hooks/useTitleHook
 
-- 利用了useLayoutEffect
+- 核心：利用了useLayoutEffect
 
 #### useHttpHook【基于fetch api 封装具有监测功能的自定义hook】
 - 目录
