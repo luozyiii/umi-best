@@ -12,3 +12,6 @@
 
 ### React 性能优化
 [link](https://github.com/luozyiii/umi-best/blob/main/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%82%B9.md)
+
+### 疑惑
+[link](https://github.com/luozyiii/umi-best/blob/main/doubt.md)
