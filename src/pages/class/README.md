@@ -125,6 +125,8 @@ Suspense 让你的组件在渲染之前进行“等待”，并在等待时显�
 #### 七、ErrorBoundary组件开发【基于React错误边界技术实现的组件】
 常见问题：在render引入不存在的变量，直接导致白屏
 
+- 核心API： getDerivedStateFromError
+
 在全局布局页面 /src/layouts 引入 ErrorBoundary组件
 ErrorBoundary组件只能检测子组件发生的错误，不能检测本身发生的错误。
 示例：pages/class/context 
@@ -144,7 +146,8 @@ Refs 提供了一种方式，允许我们访问 DOM 节点或在 render 方法�
 
 在典型的 React 数据流中，props 是父组件与子组件交互的唯一方式。要修改一个子组件，你需要使用新的 props 来重新渲染它。但是，在某些情况下，你需要在典型数据流之外强制修改子组件。被修改的子组件可能是一个 React 组件的实例，也可能是一个 DOM 元素。对于这两种情况，React 都提供了解决办法。
 
-核心：createRef 和 forwardRef
+核心：createRef 和 forwardRef (引用传递)
+>引用传递（Ref forwading）是一种通过组件向子组件自动传递 引用ref 的技术。
 
 何时使用Ref ？
 下面是几个适合使用 refs 的情况：
